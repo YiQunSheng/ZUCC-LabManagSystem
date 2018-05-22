@@ -27,6 +27,7 @@
         <mapping resource="com/zucc/sheng/model/Users.hbm.xml"/>
         <mapping resource="com/zucc/sheng/model/computer.hbm.xml"/>
         <mapping resource="com/zucc/sheng/model/lab.hbm.xml"/>
+        <mapping resource="com/zucc/sheng/model/userecord.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>
