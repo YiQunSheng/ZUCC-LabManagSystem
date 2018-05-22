@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zucc.sheng.model">
+    <class name="com.zucc.sheng.model.computer" table="computer">
+        <id name="computerId" type="string">
+            <column name="computerId"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one name="labId" column="labId" class="com.zucc.sheng.model.computer" not-found="ignore"/>
+        <!--<property name="labId" type="string" column="labId" />-->
+        <property name="ipAddress" type="string" column="ipAddress" />
+        <property name="status" type="boolean" column="status" />
+
+
+    </class>
+</hibernate-mapping>

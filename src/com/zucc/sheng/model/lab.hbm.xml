@@ -1,0 +1,12 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zucc.sheng.model">
+    <class name="com.zucc.sheng.model.lab" table="lab">
+        <id name="labId" type="string">
+            <column name="labId"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="location" type="string" column="location" />
+        <property name="size" type="int" column="size" />
+        <property name="userAmount" type="int" column="userAmount" />
+    </class>
+</hibernate-mapping>
