@@ -4,7 +4,7 @@ public class computer {
     private String computerId;
     private String labId;
     private String ipAddress;
-    private Boolean  status;
+    private int  status;
 
     public String getComputerId() {
         return computerId;
@@ -30,11 +30,11 @@ public class computer {
         this.ipAddress = ipAddress;
     }
 
-    public Boolean getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

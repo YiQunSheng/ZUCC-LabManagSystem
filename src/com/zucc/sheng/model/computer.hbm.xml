@@ -8,7 +8,7 @@
         <many-to-one name="labId" column="labId" class="com.zucc.sheng.model.computer" not-found="ignore"/>
         <!--<property name="labId" type="string" column="labId" />-->
         <property name="ipAddress" type="string" column="ipAddress" />
-        <property name="status" type="boolean" column="status" />
+        <property name="status" type="int" column="status" />
 
 
     </class>

@@ -30,7 +30,7 @@ public class HibernateUtils {
         List<computer> coms = session.createQuery("from computer").list();
         /*System.out.println(pubs.get(0).getUserName());
         System.out.println(pubs.get(0).getUserId());*/
-        System.out.println(coms.get(0).getLabId());
+        System.out.println(coms.get(0).getStatus());
     }
 
 }
