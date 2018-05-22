@@ -6,5 +6,5 @@
 	            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	            http://www.springframework.org/schema/context
 	           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-<context:component-scan base-package="com.zucc.sheng.dao com.zucc.sheng.impl com.zucc.sheng.model com.zucc.sheng.service com.zucc.sheng.springmvc" />
+<context:component-scan base-package="com.zucc.sheng.dao com.zucc.sheng.daoImpl com.zucc.sheng.model com.zucc.sheng.service com.zucc.sheng.springmvc" />
 </beans>
