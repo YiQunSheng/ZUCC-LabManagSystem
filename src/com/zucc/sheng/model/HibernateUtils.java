@@ -27,10 +27,12 @@ public class HibernateUtils {
 
         /*List<User> pubs
                 =session.createQuery("from User").list();//Is the Name of Class but not the Name OF Table!!!*/
-        List<computer> coms = session.createQuery("from computer").list();
+        List<userecord> coms = session.createQuery("from userecord").list();
         /*System.out.println(pubs.get(0).getUserName());
         System.out.println(pubs.get(0).getUserId());*/
-        System.out.println(coms.get(0).getStatus());
+        System.out.println(coms.get(0).getUser().getUserId());
+        System.out.println(coms.get(0).getInTime());
+        System.out.println(coms.get(0).getLab().getLabId());
     }
 
 }

@@ -15,5 +15,9 @@
         <!--<property name="newsAutor" type="string">-->
             <!--<column name="news_author" />-->
         <!--</property>-->
+        <set name="userecords" table="userecord">
+            <key column="userId"/>
+            <one-to-many class="com.zucc.sheng.model.userecord"/>
+        </set>
     </class>
 </hibernate-mapping>

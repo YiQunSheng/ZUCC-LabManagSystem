@@ -5,11 +5,14 @@
             <column name="computerId"/>
             <generator class="assigned"/>
         </id>
-        <many-to-one name="labId" column="labId" class="com.zucc.sheng.model.computer" not-found="ignore"/>
+        <many-to-one name="lab" column="labId" class="com.zucc.sheng.model.lab" not-found="ignore"/>
         <!--<property name="labId" type="string" column="labId" />-->
         <property name="ipAddress" type="string" column="ipAddress" />
-        <property name="status" type="boolean" column="status" />
-
+        <property name="status" type="int" column="status" />
+        <set name="userecords" table="userecord">
+            <key column="computerId"/>
+            <one-to-many class="com.zucc.sheng.model.userecord"/>
+        </set>
 
     </class>
 </hibernate-mapping>

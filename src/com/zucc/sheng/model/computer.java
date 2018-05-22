@@ -1,10 +1,30 @@
 package com.zucc.sheng.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class computer {
     private String computerId;
-    private String labId;
     private String ipAddress;
     private int  status;
+    private lab lab;
+    private Set<userecord> userecords = new HashSet<userecord>();
+
+    public Set<userecord> getUserecords() {
+        return userecords;
+    }
+
+    public void setUserecords(Set<userecord> userecords) {
+        this.userecords = userecords;
+    }
+
+    public com.zucc.sheng.model.lab getLab() {
+        return lab;
+    }
+
+    public void setLab(com.zucc.sheng.model.lab lab) {
+        this.lab = lab;
+    }
 
     public String getComputerId() {
         return computerId;
@@ -14,13 +34,7 @@ public class computer {
         this.computerId = computerId;
     }
 
-    public String getLabId() {
-        return labId;
-    }
 
-    public void setLabId(String labId) {
-        this.labId = labId;
-    }
 
     public String getIpAddress() {
         return ipAddress;

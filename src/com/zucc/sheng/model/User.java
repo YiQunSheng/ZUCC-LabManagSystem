@@ -1,10 +1,22 @@
 package com.zucc.sheng.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class User {
     private String userName;
     private String userId;
     private String pwd;
     private String role;
+    private Set<userecord> userecords = new HashSet<userecord>();
+
+    public Set<userecord> getUserecords() {
+        return userecords;
+    }
+
+    public void setUserecords(Set<userecord> userecords) {
+        this.userecords = userecords;
+    }
 
     public String getPwd() {
         return pwd;

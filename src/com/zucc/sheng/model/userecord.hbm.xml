@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zucc.sheng.model">
+    <class name="com.zucc.sheng.model.userecord" table="userecord">
+        <id name="recordId" type="int">
+            <column name="recordId"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="inTime" type="timestamp" column="inTime" />
+        <property name="outTime" type="timestamp" column="outTime" />
+        <many-to-one name="computer" column="computerId" class="com.zucc.sheng.model.computer"/>
+        <many-to-one name="lab" column="labId" class="com.zucc.sheng.model.lab"/>
+        <many-to-one name="user" column="userId" class="com.zucc.sheng.model.User"/>
+
+    </class>
+</hibernate-mapping>

@@ -8,5 +8,13 @@
         <property name="location" type="string" column="location" />
         <property name="size" type="int" column="size" />
         <property name="userAmount" type="int" column="userAmount" />
+        <set name="computers" table="computer">
+            <key column="labId"/>
+            <one-to-many class="com.zucc.sheng.model.computer"/>
+        </set>
+        <set name="userecords" table="userecord">
+            <key column="labId"/>
+            <one-to-many class="com.zucc.sheng.model.userecord"/>
+        </set>
     </class>
 </hibernate-mapping>
