@@ -12,20 +12,20 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository("UserDao")
 public class UserDaoImpl implements UserDao {
-    public static Session getSession(){
+    /*public static Session getSession(){
             Session session = sessionFactory.openSession();
             return session;
         }
         Session session=getSession();
     private static SessionFactory sessionFactory
             = new Configuration().configure().buildSessionFactory();
-    Transaction transaction = session.beginTransaction();
+    Transaction transaction = session.beginTransaction();*/
     @Override
     public boolean addUser(User user) {
-        /*SessionFactory sessionFactory
+        SessionFactory sessionFactory
                 = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();*/
+        Transaction transaction = session.beginTransaction();
         try {
             session.save(user);
             transaction.commit();
@@ -44,10 +44,10 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean deleteUser(String userId) {
-        /*SessionFactory sessionFactory
+        SessionFactory sessionFactory
                 = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();*/
+        Transaction transaction = session.beginTransaction();
         User user = new User();
         user.setUserId(userId);
         session.delete(user);
@@ -58,10 +58,10 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean updateUser(User user) {
-        /*SessionFactory sessionFactory
+        SessionFactory sessionFactory
                 = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();*/
+        Transaction transaction = session.beginTransaction();
         session.update(user);
         transaction.commit();
         session.close();
@@ -70,20 +70,25 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserById(String userId) {
-        /*SessionFactory sessionFactory
+        SessionFactory sessionFactory
                 = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();*/
+        Transaction transaction = session.beginTransaction();
         Query query = session.createQuery("from User where userId = ?");
         query.setParameter(0, userId);
         List<User> users = query.list();
         transaction.commit();
         session.close();
+        if(users.isEmpty()) return null;
         return users.get(0);
     }
 
     @Override
     public User getUserByName(String userName) {
+        SessionFactory sessionFactory
+                = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
         Query query = session.createQuery("from User where userName = ?");
         query.setParameter(0, userName);
         List<User> users = query.list();
@@ -94,10 +99,10 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAllUser() {
-        /*SessionFactory sessionFactory
+        SessionFactory sessionFactory
                 = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();*/
+        Transaction transaction = session.beginTransaction();
         Query query = session.createQuery("from User ");
         List<User> users = query.list();
         transaction.commit();

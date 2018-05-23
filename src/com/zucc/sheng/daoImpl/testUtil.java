@@ -2,6 +2,8 @@ package com.zucc.sheng.daoImpl;
 
 import com.zucc.sheng.dao.UserDao;
 import com.zucc.sheng.model.User;
+import com.zucc.sheng.model.computer;
+import com.zucc.sheng.model.lab;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -31,15 +33,25 @@ public class testUtil {
     }
     public static void main(String[] args) {
         UserDaoImpl userDao = new UserDaoImpl();
+        computerDaoImpl computerDao = new computerDaoImpl();
 //        System.out.println(userDao.getUser("10000002").getUserName());
 //        User user = userDao.getUser("10000003");
 //        user.setUserName("SunZhao");
 //        userDao.updateUser(user);
-        List<User> users = userDao.getAllUser();
+       /* List<User> users = userDao.getAllUser();
         for (int i=0;i<users.size();i++) {
             System.out.println(users.get(i).getUserName());
 
-        }
-
+        }*/
+        List<computer> computers = computerDao.getComputerInLab("Lab00001");
+        System.out.println(computers.get(0).getIpAddress());
+        computer computer = new computer();
+        computer.setComputerId("comp0003");
+        computer.setIpAddress("192.168.0.3");
+        lab lab = new lab();
+        lab.setLabId("Lab00002");
+        computer.setLab(lab);
+        computer.setStatus(1);
+        computerDao.addComputer(computer);
     }
 }
