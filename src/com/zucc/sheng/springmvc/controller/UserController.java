@@ -51,11 +51,11 @@ public class UserController {
     @RequestMapping(value = "/allUser")
     public ModelAndView getAllUser(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         List<User> list = userService.getAllUser();
-        String ml = "<table class='table'><tr><th>ÐÕÃû</th><th>ID</th><t/r>";
+        String ml = "<table class='table'><tr><th>ÐÕÃû</th><th>ID</th><th>ÐÞ¸Ä</th><th>É¾³ý</th></tr>";
         for(int i=0;i<list.size();i++) {
             ml+="<tr>";
             ml +="<td>"+ list.get(i).getUserName()+"</td>";
-            ml +="<td>"+ list.get(i).getUserId()+"</td>";
+            ml +="<td>"+ list.get(i).getUserId()+"</td>"+"<td><button class='btn btn-primary' type='button'>edit</button></td>"+"<td><button class='btn btn-primary' type='button'>delete</button></td>";
             ml+="</tr>";
         }
         ml += "</table>";

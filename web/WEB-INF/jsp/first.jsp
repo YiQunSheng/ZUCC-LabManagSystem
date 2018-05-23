@@ -22,7 +22,7 @@
                     用户信息管理
                 </h1>
                 <p>
-                    <a class="btn btn-primary btn-large" href="#">Learn more</a>
+                    <a class="btn btn-primary btn-large" href="#">添加用户</a>
                 </p>
             </div>
             ${msg}
