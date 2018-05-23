@@ -7,24 +7,24 @@
 </head>
 <body bgcolor="#FFFFFF">
 <%--<form action="user?method=logincheck" method="post">--%>
-<form action="${pageContext.request.contextPath} /hello/loginUser" method="post">
-  用户：<input type="text" name="userid"/><br>
+<form <%--action="${pageContext.request.contextPath} /hello/loginUser" method="post"--%>>
+  用户：<input type="text" name="userId"/><br>
   密码：<input type="password" name="pwd"/><br>
-  <input type="submit" value="登陆"/><br>
+  <input type="submit" value="登陆" id="submit1"/><br>
 </form>
-<%
+<%--<%
    String errmsg=(String)session.getAttribute("errormsg");
    if(errmsg!=null){
      session.removeAttribute("errormsg");
      out.println(errmsg);
    }
-%>
+%>--%>
 <script type="text/javascript">
     $(function() {
         $("#submit1").click(function() {
             var json = {
-                'username':$(':input[name=username]').val(),
-                'password':$(':input[name=password]').val()
+                'username':$(':input[name=userId]').val(),
+                'password':$(':input[name=pwd]').val()
             };
             //json字符串 {"username":"admin","password":"123456"}
             var postdata = JSON.stringify(json);//json对象转换json字符串
@@ -38,7 +38,7 @@
                  * 如果要发送 DOM 树信息或其它不希望转换的信息，请设置为 false。
                  */
                 processData : false,
-                url : '<%=path%>/databind/requestbodybind',
+                url : '/user/login',
                 dataType : 'json',
                 data : postdata,
                 success : function(data) {

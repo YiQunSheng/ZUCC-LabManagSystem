@@ -33,16 +33,16 @@ public class testUtil {
     }
     public static void main(String[] args) {
         UserDaoImpl userDao = new UserDaoImpl();
-        computerDaoImpl computerDao = new computerDaoImpl();
+        /*computerDaoImpl computerDao = new computerDaoImpl();
 //        System.out.println(userDao.getUser("10000002").getUserName());
 //        User user = userDao.getUser("10000003");
 //        user.setUserName("SunZhao");
 //        userDao.updateUser(user);
-       /* List<User> users = userDao.getAllUser();
+       *//* List<User> users = userDao.getAllUser();
         for (int i=0;i<users.size();i++) {
             System.out.println(users.get(i).getUserName());
 
-        }*/
+        }*//*
         List<computer> computers = computerDao.getComputerInLab("Lab00001");
         System.out.println(computers.get(0).getIpAddress());
         computer computer = new computer();
@@ -52,6 +52,8 @@ public class testUtil {
         lab.setLabId("Lab00002");
         computer.setLab(lab);
         computer.setStatus(1);
-        computerDao.addComputer(computer);
+        computerDao.addComputer(computer);*/
+        User user = userDao.getUserById("10000001");
+        System.out.println(user.getUserName());
     }
 }

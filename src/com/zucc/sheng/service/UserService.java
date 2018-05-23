@@ -11,5 +11,5 @@ public interface UserService {
 
     public String getAllUserName();
 
-
+    User login(String userId,String pwd);
 }

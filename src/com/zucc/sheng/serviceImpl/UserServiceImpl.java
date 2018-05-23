@@ -1,6 +1,7 @@
 package com.zucc.sheng.serviceImpl;
 
 import com.zucc.sheng.dao.UserDao;
+import com.zucc.sheng.daoImpl.UserDaoImpl;
 import com.zucc.sheng.model.User;
 import com.zucc.sheng.service.UserService;
 import org.springframework.stereotype.Service;
@@ -32,5 +33,22 @@ public class UserServiceImpl implements UserService {
     public String getAllUserName() {
         List<User> user=userDao.getAllUser();
         return user.get(0).getUserName();
+    }
+
+    @Override
+    public User login(String userId, String pwd) {
+//        UserDaoImpl userDao1 = new UserDaoImpl();
+        User user = userDao.getUserById(userId);
+//        return user;
+        if(user==null) return null;
+        else if(user.getPwd().equals(pwd))
+        {
+            return user;
+        }
+        else {
+            User user1 = new User();
+            user1.setRole("error");
+            return user1;
+        }
     }
 }
