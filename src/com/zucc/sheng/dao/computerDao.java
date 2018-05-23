@@ -1,4 +1,4 @@
 package com.zucc.sheng.dao;
 
-public class computerDao {
+public interface computerDao {
 }
