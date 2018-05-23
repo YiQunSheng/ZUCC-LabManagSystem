@@ -2,6 +2,7 @@ package com.zucc.sheng.springmvc.controller;
 
 import com.zucc.sheng.model.User;
 import com.zucc.sheng.service.UserService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -62,6 +63,29 @@ public class UserController {
         ModelAndView mav = new ModelAndView();
         mav.addObject("msg", ml);
         mav.setViewName("/WEB-INF/jsp/first.jsp");
+        return mav;
+    }
+    @RequestMapping(value = "/addUserInput")
+    public ModelAndView addUserInput(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/WEB-INF/jsp/addUser.jsp");
+        return mav;
+    }
+    @RequestMapping(value = "/addUser")
+    public ModelAndView addUser(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
+        String userId = httpServletRequest.getParameter("userId");
+        String pwd = httpServletRequest.getParameter("pwd");
+        String userName = httpServletRequest.getParameter("userName");
+        String role = httpServletRequest.getParameter("role");
+//        System.out.println(userId+"   "+pwd+"  "+userName+"   "+role);
+        User user = new User();
+        user.setUserName(userName);
+        user.setPwd(pwd);
+        user.setRole(role);
+        user.setUserId(userId);
+        userService.addUser(user);
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/index.jsp");
         return mav;
     }
 }
