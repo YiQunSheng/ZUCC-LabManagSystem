@@ -40,9 +40,11 @@ public class UserServiceImpl implements UserService {
 //        UserDaoImpl userDao1 = new UserDaoImpl();
         User user = userDao.getUserById(userId);
 //        return user;
+        //如果用户不存在，返回null，如果存在但密码错误，返回用户，但是role=error，正确返回用户。
         if(user==null) return null;
         else if(user.getPwd().equals(pwd))
         {
+
             return user;
         }
         else {
@@ -50,5 +52,21 @@ public class UserServiceImpl implements UserService {
             user1.setRole("error");
             return user1;
         }
+    }
+
+    @Override
+    public boolean deleteUser(String userId) {
+//        UserDaoImpl userDao1 = new UserDaoImpl();
+        return userDao.deleteUser(userId);
+    }
+
+    @Override
+    public boolean updateUser(User user) {
+        return userDao.updateUser(user);
+    }
+
+    @Override
+    public User getUserById(String userId) {
+        return userDao.getUserById(userId);
     }
 }
