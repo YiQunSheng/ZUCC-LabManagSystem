@@ -11,6 +11,7 @@
     <title>用户信息</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
+    <meta charset="UTF-8"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -27,24 +28,25 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="admin">系统首页</a>
+                        <a class="navbar-brand" href="/user/admin">系统首页</a>
                     </div>
+
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="#">登陆</a>
+                                <a href="#">您好，${userName}</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" >用户<strong
                                         class="caret"></strong></a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="#">Action</a>
+                                        <a href="#">信息</a>
                                     </li>
                                     <li>
-                                        <a href="#">Another action</a>
+                                        <a href="/user/logout">Logout</a>
                                     </li>
                                     <li>
                                         <a href="#">Something else here</a>
@@ -58,6 +60,7 @@
                             </li>
                         </ul>
                     </div>
+
                 </nav>
             </div>
         </div>

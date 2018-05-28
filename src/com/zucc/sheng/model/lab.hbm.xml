@@ -8,11 +8,11 @@
         <property name="location" type="string" column="location" />
         <property name="size" type="int" column="size" />
         <property name="userAmount" type="int" column="userAmount" />
-        <set name="computers" table="computer">
+        <set name="computers" table="computer" inverse="true">
             <key column="labId"/>
             <one-to-many class="com.zucc.sheng.model.computer"/>
         </set>
-        <set name="userecords" table="userecord">
+        <set name="userecords" table="userecord" inverse="true">
             <key column="labId"/>
             <one-to-many class="com.zucc.sheng.model.userecord"/>
         </set>

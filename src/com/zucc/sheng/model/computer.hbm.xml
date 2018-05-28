@@ -9,7 +9,7 @@
         <!--<property name="labId" type="string" column="labId" />-->
         <property name="ipAddress" type="string" column="ipAddress" />
         <property name="status" type="int" column="status" />
-        <set name="userecords" table="userecord">
+        <set name="userecords" table="userecord" inverse="true">
             <key column="computerId"/>
             <one-to-many class="com.zucc.sheng.model.userecord"/>
         </set>

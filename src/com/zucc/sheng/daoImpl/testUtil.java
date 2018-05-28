@@ -33,6 +33,7 @@ public class testUtil {
     }
     public static void main(String[] args) {
         UserDaoImpl userDao = new UserDaoImpl();
+        labDaoImpl labDao = new labDaoImpl();
         /*computerDaoImpl computerDao = new computerDaoImpl();
 //        System.out.println(userDao.getUser("10000002").getUserName());
 //        User user = userDao.getUser("10000003");
@@ -53,7 +54,8 @@ public class testUtil {
         computer.setLab(lab);
         computer.setStatus(1);
         computerDao.addComputer(computer);*/
-        User user = userDao.getUserById("10000001");
-        System.out.println(user.getUserName());
+//        User user = userDao.getUserById("10000001");
+//        System.out.println(user.getUserName());
+        System.out.println(labDao.getUsableComp("Lab00001"));
     }
 }

@@ -11,6 +11,7 @@
     <title>实验室管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
+    <meta charset="UTF-8"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -26,7 +27,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="admin.jsp">系统首页</a>
+                    <a class="navbar-brand" href="/user/admin">系统首页</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -81,7 +82,7 @@
         </div>
     </div>
     <div class="row clearfix">
-        <div class="col-md-4 column">
+        <div class="col-md-6 column">
             <h2>
                 实验室管理
             </h2>
@@ -94,20 +95,20 @@
                 <a class="btn" href="/lab/allLab">View details »</a>
             </p>
         </div>
-        <div class="col-md-4 column">
-            <h2>
-                机房管理
-            </h2>
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column">
+        <%--<div class="col-md-4 column">--%>
+            <%--<h2>--%>
+                <%--机房管理--%>
+            <%--</h2>--%>
+            <%--<p>--%>
+                <%--Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris--%>
+                <%--condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis--%>
+                <%--euismod. Donec sed odio dui.--%>
+            <%--</p>--%>
+            <%--<p>--%>
+                <%--<a class="btn" href="#">View details »</a>--%>
+            <%--</p>--%>
+        <%--</div>--%>
+        <div class="col-md-6 column">
             <h2>
                 用户管理
             </h2>

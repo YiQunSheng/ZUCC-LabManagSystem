@@ -15,7 +15,7 @@
         <!--<property name="newsAutor" type="string">-->
             <!--<column name="news_author" />-->
         <!--</property>-->
-        <set name="userecords" table="userecord">
+        <set name="userecords" table="userecord" inverse="true">
             <key column="userId"/>
             <one-to-many class="com.zucc.sheng.model.userecord"/>
         </set>

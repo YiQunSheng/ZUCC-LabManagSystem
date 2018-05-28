@@ -16,4 +16,5 @@ public interface computerDao {
     boolean updateComputer(computer computer);
 
     List<computer> getAllComputers();
+
 }

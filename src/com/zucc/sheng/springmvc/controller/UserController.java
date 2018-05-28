@@ -28,7 +28,7 @@ public class UserController {
         ModelAndView mv = new ModelAndView("/WEB-INF/jsp/login.jsp");
         return mv;
     }
-    //Ã»ÓÃµÄ
+    //æ²¡ç”¨çš„
     @RequestMapping(value = "/LoginController")
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         String name = httpServletRequest.getParameter("name");
@@ -37,7 +37,7 @@ public class UserController {
         mv.setViewName("/WEB-INF/jsp/addUser.jsp");
         return mv;
     }
-    //Ã»ÓÃµÄ
+    //æ²¡ç”¨çš„
     @RequestMapping(value = "/loginUser")
     public String loginUser(HttpServletRequest request) {
         String username = request.getParameter("userid");
@@ -56,7 +56,7 @@ public class UserController {
     @RequestMapping(value = "/allUser")
     public ModelAndView getAllUser(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         List<User> list = userService.getAllUser();
-        String ml = "<table class='table'><tr><th>ĞÕÃû</th><th>ID</th><th>ĞŞ¸Ä</th><th>É¾³ı</th></tr>";
+        String ml = "<table class='table'><tr><th>å§“å</th><th>ID</th><th>ä¿®æ”¹</th><th>åˆ é™¤</th></tr>";
         for (int i = 0; i < list.size(); i++) {
             String userid = list.get(i).getUserId();
             ml += "<tr id='" + userid + "'>";
@@ -141,10 +141,6 @@ public class UserController {
     @RequestMapping(value = "/admin")
     public ModelAndView adminPage(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         ModelAndView mav = new ModelAndView();
-        if(!httpServletRequest.getSession().getAttribute("role").equals("admin")) {
-            mav.addObject("/WEB-INF/jsp/login.jsp");
-            return mav;
-        }
         mav.addObject("userName", httpServletRequest.getSession().getAttribute("userName"));
         mav.setViewName("/WEB-INF/jsp/admin.jsp");
         return mav;

@@ -10,4 +10,5 @@ public interface labDao {
     public boolean deleteLab(String labId);
     public boolean  editLab(lab lab);
     public List<lab> getAllLab( );
+    public int getUsableComp(String labId);
 }
