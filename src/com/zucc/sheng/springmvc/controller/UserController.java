@@ -23,9 +23,9 @@ public class UserController {
     private UserService userService;
 
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/index")
     public ModelAndView indexCore(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView mv = new ModelAndView("/login.jsp");
+        ModelAndView mv = new ModelAndView("/WEB-INF/jsp/login.jsp");
         return mv;
     }
     //Ã»ÓÃµÄ
@@ -141,6 +141,10 @@ public class UserController {
     @RequestMapping(value = "/admin")
     public ModelAndView adminPage(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         ModelAndView mav = new ModelAndView();
+        if(!httpServletRequest.getSession().getAttribute("role").equals("admin")) {
+            mav.addObject("/WEB-INF/jsp/login.jsp");
+            return mav;
+        }
         mav.addObject("userName", httpServletRequest.getSession().getAttribute("userName"));
         mav.setViewName("/WEB-INF/jsp/admin.jsp");
         return mav;
@@ -184,7 +188,7 @@ public class UserController {
         httpServletRequest.getSession().setAttribute("userId", "");
         httpServletRequest.getSession().setAttribute("userName", "");
         httpServletRequest.getSession().setAttribute("role", "");
-        mav.setViewName("login.jsp");
+        mav.setViewName("/WEB-INF/jsp/login.jsp");
         return mav;
     }
 }
