@@ -53,4 +53,13 @@ public class computerServiceImpl implements computerService {
 
     }
 
+
+    public List<computer> getComputerByLabIdAndStatus(String labId) {
+        return this.computerDao.getComputerByLabIdAndStatus(labId);
+    }
+
+
+    public computer getComputerByLadIdAndComputerId(String labId, String computerId) {
+        return this.computerDao.getComputerByLabIdAndComputerId(labId,computerId);
+    }
 }

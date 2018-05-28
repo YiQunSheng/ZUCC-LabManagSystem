@@ -49,6 +49,21 @@ public class computerDaoImpl implements computerDao {
     }
 
     @Override
+    public computer getComputerByLabIdAndComputerId(String labId, String computerId) {
+        SessionFactory sessionFactory
+                = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery(" from computer where labId = ? and computerId = ?");
+        query.setParameter(0, labId);
+        query.setParameter(1,computerId);
+        computer computer =(computer)query.uniqueResult();
+        transaction.commit();
+        session.close();
+        return computer;
+    }
+
+    @Override
     public boolean addComputer(computer computer) {
         SessionFactory sessionFactory
                 = new Configuration().configure().buildSessionFactory();
@@ -84,6 +99,22 @@ public class computerDaoImpl implements computerDao {
         transaction.commit();
         session.close();
         return true;
+    }
+
+    @Override
+    public List<computer> getComputerByLabIdAndStatus(String labId) {
+
+        SessionFactory sessionFactory
+                = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery(" from computer where labId = ? and status= ? ");
+        query.setParameter(0, labId);
+        query.setParameter(1,0);
+        List<computer> computers =query.list();
+        transaction.commit();
+        session.close();
+        return computers;
     }
 
     @Override

@@ -11,10 +11,13 @@ public interface computerService {
 
     public List<computer> getAllComputerByLabId(String labId);
 
+    List<computer> getComputerByLabIdAndStatus (String labId);
     boolean deleteComputer(String computerId);
 
     boolean updateComputer(computer  computer);
 
     computer getComputerById(String computerId);
+
+    public computer getComputerByLadIdAndComputerId(String labId,String computerId);
 
 }

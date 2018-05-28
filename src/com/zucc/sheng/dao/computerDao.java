@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface computerDao {
     computer getComputerById (String computerId);
+    List<computer> getComputerByLabIdAndStatus (String labId);
 
     List<computer> getComputerInLab(String labId);
 
@@ -16,5 +17,5 @@ public interface computerDao {
     boolean updateComputer(computer computer);
 
     List<computer> getAllComputers();
-
+    computer getComputerByLabIdAndComputerId(String labId,String computerId);
 }

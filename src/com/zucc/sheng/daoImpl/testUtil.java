@@ -56,6 +56,6 @@ public class testUtil {
         computerDao.addComputer(computer);*/
 //        User user = userDao.getUserById("10000001");
 //        System.out.println(user.getUserName());
-        System.out.println(labDao.getUsableComp("Lab00001"));
+//        System.out.println(labDao.getUsableComp("Lab00001"));
     }
 }

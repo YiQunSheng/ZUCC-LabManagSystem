@@ -1,7 +1,6 @@
 package com.zucc.sheng.serviceImpl;
 
 import com.zucc.sheng.dao.UserDao;
-import com.zucc.sheng.daoImpl.UserDaoImpl;
 import com.zucc.sheng.model.User;
 import com.zucc.sheng.service.UserService;
 import org.springframework.stereotype.Service;
@@ -40,7 +39,6 @@ public class UserServiceImpl implements UserService {
 //        UserDaoImpl userDao1 = new UserDaoImpl();
         User user = userDao.getUserById(userId);
 //        return user;
-        //如果用户不存在，返回null，如果存在但密码错误，返回用户，但是role=error，正确返回用户。
         if(user==null) return null;
         else if(user.getPwd().equals(pwd))
         {
@@ -62,7 +60,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean updateUser(User user) {
-        return userDao.updateUser(user);
+
+        userDao.updateUser(user);
+        return true;
     }
 
     @Override

@@ -2,7 +2,6 @@
   Created by IntelliJ IDEA.
   User: shengyiqun
   Date: 2018/5/14
-  Time: ����7:52
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -47,14 +46,6 @@
                                 <li>
                                     <a href="/user/logout">Logout</a>
                                 </li>
-                                <li>
-                                    <a href="#">Something else here</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="#">Separated link</a>
-                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -68,12 +59,10 @@
             </div>
             <div class="jumbotron">
                 <h1>
-                    Hello, world!
+                    管理员界面
                 </h1>
                 <p>
-                    This is a template for a simple marketing or informational website. It includes a large callout
-                    called the hero unit and three supporting pieces of content. Use it as a starting point to create
-                    something more unique.
+                    您可以在这里进行用户以及实验室管理
                 </p>
                 <p>
                     <a class="btn btn-primary btn-large" href="#">Learn more</a>
@@ -95,19 +84,6 @@
                 <a class="btn" href="/lab/allLab">View details »</a>
             </p>
         </div>
-        <%--<div class="col-md-4 column">--%>
-            <%--<h2>--%>
-                <%--机房管理--%>
-            <%--</h2>--%>
-            <%--<p>--%>
-                <%--Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris--%>
-                <%--condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis--%>
-                <%--euismod. Donec sed odio dui.--%>
-            <%--</p>--%>
-            <%--<p>--%>
-                <%--<a class="btn" href="#">View details »</a>--%>
-            <%--</p>--%>
-        <%--</div>--%>
         <div class="col-md-6 column">
             <h2>
                 用户管理

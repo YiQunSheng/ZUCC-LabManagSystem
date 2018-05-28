@@ -1,6 +1,6 @@
 package com.zucc.sheng.dao;
 
-import com.zucc.sheng.model.userecord;
+        import com.zucc.sheng.model.userecord;
 
 public interface useRecordDao {
     public boolean userStart(userecord userRecord);
