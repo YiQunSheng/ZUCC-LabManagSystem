@@ -91,7 +91,7 @@
                 euismod. Donec sed odio dui.
             </p>
             <p>
-                <a class="btn" href="#">View details »</a>
+                <a class="btn" href="/lab/allLab">View details »</a>
             </p>
         </div>
         <div class="col-md-4 column">
