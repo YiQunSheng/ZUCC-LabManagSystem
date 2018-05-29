@@ -90,7 +90,12 @@ public class UserController {
         user.setPwd(pwd);
         user.setRole(role);
         user.setUserId(userId);
-        userService.addUser(user);
+        try {
+
+            userService.addUser(user);
+        } catch (Exception e) {
+            return "WEB-INF/jsp/error?errorMessage="+e.getMessage();
+        }
 //        ModelAndView mav = new ModelAndView();
 //        mav.setViewName("/user/addUser");
 //        return mav;
@@ -175,7 +180,16 @@ public class UserController {
             System.out.println(httpServletRequest.getSession().getAttribute("userId"));
             System.out.println(httpServletRequest.getSession().getAttribute("role"));
             return "admin";
-        } else return user.getUserName() + "  " + user.getRole();
+        } else if (user.getRole().equals("stu")) {
+            httpServletRequest.getSession().setAttribute("userId", user.getUserId());
+            httpServletRequest.getSession().setAttribute("userName", user.getUserName());
+            httpServletRequest.getSession().setAttribute("role", user.getRole());
+            System.out.println("your stuId is "+httpServletRequest.getSession().getAttribute("userId"));
+            System.out.println("your role is "+httpServletRequest.getSession().getAttribute("role"));
+            return "stu";
+        } else {
+            return user.getUserName() + "  " + user.getRole();
+        }
     }
 
     @RequestMapping(value = "/logout")

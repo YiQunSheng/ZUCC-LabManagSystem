@@ -54,6 +54,17 @@ public class testUtil {
         computer.setLab(lab);
         computer.setStatus(1);
         computerDao.addComputer(computer);*/
+        try {
+            User user = new User();
+            user.setUserId("10000001");
+            user.setUserName("SunZhao");
+            user.setPwd("123");
+            user.setRole("stu");
+            userDao.addUser(user);
+        } catch (Exception e) {
+            System.out.println("用户已存在");
+        }
+
 //        User user = userDao.getUserById("10000001");
 //        System.out.println(user.getUserName());
 //        System.out.println(labDao.getUsableComp("Lab00001"));

@@ -89,7 +89,7 @@ public class stuController {
     @RequestMapping(value="/mainPage")
     public ModelAndView getMainPage(HttpServletRequest request, HttpServletResponse response,HttpSession session){
        //设置测试的session
-       request.getSession().setAttribute("userId","31501086");
+//       request.getSession().setAttribute("userId","31501086");
        String computerId=request.getParameter("computerId");
        String labId=request.getParameter("labId");
        String userId=request.getSession().getAttribute("userId").toString();

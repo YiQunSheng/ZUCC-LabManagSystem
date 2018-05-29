@@ -58,6 +58,7 @@
                     // alert(msg);
 
                     if(msg==="admin") window.location.href="/user/admin";
+                    else if(msg==="stu") window.location.href = "/stu/getAllLab";
                     else　alert(msg);
                 },
                 error:function () {
