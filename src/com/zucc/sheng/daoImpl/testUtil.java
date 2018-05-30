@@ -4,6 +4,7 @@ import com.zucc.sheng.dao.UserDao;
 import com.zucc.sheng.model.User;
 import com.zucc.sheng.model.computer;
 import com.zucc.sheng.model.lab;
+import com.zucc.sheng.model.userecord;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -32,8 +33,8 @@ public class testUtil {
         System.out.println("fuck world");
     }
     public static void main(String[] args) {
-        UserDaoImpl userDao = new UserDaoImpl();
-        labDaoImpl labDao = new labDaoImpl();
+//        UserDaoImpl userDao = new UserDaoImpl();
+//        labDaoImpl labDao = new labDaoImpl();
         /*computerDaoImpl computerDao = new computerDaoImpl();
 //        System.out.println(userDao.getUser("10000002").getUserName());
 //        User user = userDao.getUser("10000003");
@@ -54,7 +55,7 @@ public class testUtil {
         computer.setLab(lab);
         computer.setStatus(1);
         computerDao.addComputer(computer);*/
-        try {
+        /*try {
             User user = new User();
             user.setUserId("10000001");
             user.setUserName("SunZhao");
@@ -63,7 +64,13 @@ public class testUtil {
             userDao.addUser(user);
         } catch (Exception e) {
             System.out.println("用户已存在");
-        }
+        }*/
+        useRecordDaoImpl useRecordDao = new useRecordDaoImpl();
+        UserDao userDao = new UserDaoImpl();
+        System.out.println(userDao.getAllUser().get(0).getUserName());
+        System.out.println(useRecordDao.getcurrentUseRecordByUserId("31501086").getComputer().getComputerId());
+//        List<userecord> userecords =useRecordDao.getUserecordsByUserId("31501086");
+//        System.out.println(userecords.get(0).getUser().getUserName());
 
 //        User user = userDao.getUserById("10000001");
 //        System.out.println(user.getUserName());

@@ -1,7 +1,9 @@
 package com.zucc.sheng.springmvc.controller;
 
 import com.zucc.sheng.model.User;
+import com.zucc.sheng.model.userecord;
 import com.zucc.sheng.service.UserService;
+import com.zucc.sheng.service.stuService;
 import org.hibernate.Session;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +16,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @org.springframework.stereotype.Controller("UserController")
@@ -21,7 +26,8 @@ import java.util.List;
 public class UserController {
     @Resource(name = "UserService")
     private UserService userService;
-
+    @Resource(name="stuService")
+    private stuService stuService;
 
     @RequestMapping(value = "/index")
     public ModelAndView indexCore(HttpServletRequest request, HttpServletResponse response) {
@@ -157,10 +163,28 @@ public class UserController {
         String id = httpServletRequest.getParameter("userId");
         System.out.println(id);
         User user = userService.getUserById(id);
+        List<userecord> userecords = stuService.getUserecordsByUserId(id);
+        String tableHTML = "<tbody>";
+        for(int i=0;i<userecords.size();i++) {
+//            long date1 = userecords.get(i).getInTime().getTime();
+//            long date2 = userecords.get(i).getOutTime().getTime();
+//            Timestamp timestamp = userecords.get(i).getInTime();
+//            Timestamp timestamp1 = userecords.get(i).getOutTime();
+//            System.out.println(timestamp1.getTime()-timestamp.getTime());
+            tableHTML += "<tr>";
+            tableHTML += "<td>" + userecords.get(i).getLab().getLabId() + "</td>";
+            tableHTML += "<td>" + userecords.get(i).getComputer().getComputerId() + "</td>";
+            tableHTML += "<td>" + userecords.get(i).getInTime() + "</td>";
+            tableHTML += "<td>" + userecords.get(i).getOutTime() + "</td>";
+            tableHTML += "<td>" + (userecords.get(i).getOutTime().getTime()-userecords.get(i).getInTime().getTime())/(1000*60) + "分钟</td></tr>";
+
+        }
+        tableHTML += "</tbody>";
         mav.addObject("id", user.getUserId());
         mav.addObject("name", user.getUserName());
         mav.addObject("pwd", user.getPwd());
         mav.addObject("role", user.getRole());
+        mav.addObject("infoTable", tableHTML);
         mav.setViewName("/WEB-INF/jsp/userInfo.jsp");
         return mav;
     }

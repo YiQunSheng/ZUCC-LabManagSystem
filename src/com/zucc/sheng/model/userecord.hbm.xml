@@ -1,6 +1,6 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.zucc.sheng.model">
-    <class name="com.zucc.sheng.model.userecord" table="userecord">
+    <class name="com.zucc.sheng.model.userecord" table="userecord"  lazy="true">
         <id name="recordId" type="int">
             <column name="recordId"/>
             <generator class="assigned"/>

@@ -12,15 +12,15 @@ import org.springframework.stereotype.Component;
 public class userAspect {
     @Before("execution(* com.zucc.sheng.dao.UserDao.addUser(..))")
     public void beforeAdd(JoinPoint joinPoint) {
-        System.out.println("前置通知：模拟执行权限检查");
-        System.out.println("目标类是：" + joinPoint.getTarget());
+        System.out.println("BeforeAOP:This is before the method ");
+        System.out.println("The Target Class is ：" + joinPoint.getTarget());
 
     }
 
     @After("execution(* com.zucc.sheng.dao.UserDao.addUser(..))")
     public void myAfterReturnning(JoinPoint joinPoint) {
-        System.out.println("后置通知：模拟记录日志");
-        System.out.println("目标类是：" + joinPoint.getTarget());
+        System.out.println("AfterAOP ：This Method is Successfully finished");
+        System.out.println("The Target Class is：" + joinPoint.getTarget());
 
     }
     public Object myAround(ProceedingJoinPoint proceedingJoinPoint ) throws Throwable {

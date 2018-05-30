@@ -6,6 +6,7 @@ import com.zucc.sheng.service.stuService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service("stuService")
 public class stuServiceImpl implements stuService {
@@ -25,5 +26,10 @@ public class stuServiceImpl implements stuService {
     @Override
     public userecord getcurrentUseRecordByUserId(String userid) {
         return this.useRecordDao.getcurrentUseRecordByUserId(userid);
+    }
+
+    @Override
+    public List<userecord> getUserecordsByUserId(String userId) {
+        return useRecordDao.getUserecordsByUserId(userId);
     }
 }

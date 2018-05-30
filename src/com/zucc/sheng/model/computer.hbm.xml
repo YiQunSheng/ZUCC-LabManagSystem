@@ -1,6 +1,6 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.zucc.sheng.model">
-    <class name="com.zucc.sheng.model.computer" table="computer">
+    <class name="com.zucc.sheng.model.computer" table="computer"  lazy="true">
         <id name="computerId" type="string">
             <column name="computerId"/>
             <generator class="assigned"/>

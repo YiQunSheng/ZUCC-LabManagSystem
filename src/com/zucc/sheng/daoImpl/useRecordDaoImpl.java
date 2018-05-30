@@ -47,6 +47,19 @@ public class useRecordDaoImpl implements useRecordDao {
         session.close();
         return userecord;
     }
+
+    @Override
+    public List<userecord> getUserecordsByUserId(String userId) {
+        Session session=getSession();
+        Transaction transaction=session.beginTransaction();
+        String hql="from userecord where userid=? order by inTime";
+        Query query=session.createQuery(hql).setParameter(0,userId);
+        List<userecord> userecords=query.list();
+        transaction.commit();
+        session.close();
+        return userecords;
+    }
+
     @Override
     public boolean userEnd(userecord userecord) {
         Session session=getSession();
@@ -56,4 +69,5 @@ public class useRecordDaoImpl implements useRecordDao {
         session.close();
         return true;
     }
+
 }
