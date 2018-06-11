@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,11 +25,13 @@ public class labDaoImpl implements labDao {
     public lab getLabById(String LabId) {
          Session session=getSession();
         Transaction transaction=session.beginTransaction();
-        String hql="from lab where id=?";
-        lab lab=(lab)session.createQuery(hql).setParameter(0,LabId).uniqueResult();
+        Query query = session.createQuery("from lab where labid = ?");
+        query.setParameter(0, LabId);
+        List<lab> labs = query.list();
         transaction.commit();
         session.close();
-        return lab;
+        if(labs.size()==0) return null;
+        return labs.get(0);
     }
 
     @Override

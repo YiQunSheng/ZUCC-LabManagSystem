@@ -95,14 +95,18 @@
                     url:"/lab/deleteLab",
                     success:function (msg) {
                         // alert(msg);
-                        bool = msg;
+                        if(msg==='This lab has Computers in it!')
+                            alert(msg);
+                        else{
+                            $(this).parent().parent().remove();
+                        }
                     },
                     error:function () {
                         alert("False!!!");
                     }
                 })
 
-                $(this).parent().parent().remove();
+
             }
         });
         /*$(".editbtn").click(function(){

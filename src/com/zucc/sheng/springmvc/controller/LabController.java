@@ -1,7 +1,9 @@
 package com.zucc.sheng.springmvc.controller;
 
+import com.zucc.sheng.model.computer;
 import com.zucc.sheng.model.lab;
 import com.zucc.sheng.service.labService;
+import com.zucc.sheng.service.computerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,9 +21,13 @@ import java.util.List;
 public class LabController {
     @Resource(name="labService")
     private labService  labService;
-    @RequestMapping(value="/")
-    public ModelAndView indexCore(HttpServletRequest request, HttpServletResponse response){
-        ModelAndView mv=new ModelAndView("/index.jsp");
+    @Resource(name = "computerService")
+    private computerService computerService;
+
+    @RequestMapping(value = "/")
+    public ModelAndView indexCore(HttpServletRequest request, HttpServletResponse response) {
+
+        ModelAndView mv = new ModelAndView("/index.jsp");
         return mv;
     }
     @RequestMapping(value="/allLab")
@@ -76,6 +82,12 @@ public class LabController {
         String labId=request.getParameter("labId");
         String location=request.getParameter("location");
         int size=Integer.valueOf(request.getParameter("size"));
+
+        lab labConfirm = labService.getLabById(labId);
+        if(labConfirm!=null){
+            request.setAttribute("msg","Lab Already exists");
+            return "/WEB-INF/jsp/addLab.jsp";
+        }
         lab lab=new lab();
         lab.setLabId(labId);
         lab.setLocation(location);
@@ -88,6 +100,9 @@ public class LabController {
    @ResponseBody
    public String deleteLab(HttpServletRequest request,HttpServletResponse response){
         String labId=request.getParameter("id");
+       List<computer> computers = computerService.getAllComputerByLabId(labId);
+       if(computers!=null) return "This lab has Computers in it!";
+
         labService.deleteLab(labId);
         return "you delete"+labId;
     }

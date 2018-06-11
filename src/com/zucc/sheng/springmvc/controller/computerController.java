@@ -43,8 +43,9 @@ public class computerController {
     @RequestMapping(value="/allComputer")
     public ModelAndView getAllComputer(HttpServletRequest request, HttpServletResponse response){
       String labId=request.getParameter("labId");
-
+        ModelAndView mav=new ModelAndView();
       List<computer> list=computerService.getAllComputerByLabId(labId);
+      if(list!=null){
       String ml="<table class='table'>"+
                 "<thead>"+
                 "<tr>"+
@@ -76,9 +77,14 @@ public class computerController {
           ml+="</tr></tbody>";
       }
          ml+="</table>";
-      ModelAndView mav=new ModelAndView();
+
       mav.addObject("msg",ml);
       mav.addObject("labId",labId);
+      }
+      else {
+          String noLab = "<h3>当前实验室没有计算机😯，请添加！</h3>";
+          mav.addObject("msg",noLab);
+      }
       mav.setViewName("/WEB-INF/jsp/computer.jsp");
       return mav;
     }
@@ -95,6 +101,11 @@ public class computerController {
         String computerId=request.getParameter("computerId");
         String ipAddress=request.getParameter("ipAddress");
         String status=request.getParameter("role");
+        computer computerConfirm = computerService.getComputerById(computerId);
+        if(computerConfirm!=null){
+            request.setAttribute("msg","Computer Already exists");
+            return "/WEB-INF/jsp/addComputer.jsp";
+        }
         int  actualStatus=0;
         System.out.println("当前状态为:"+status);
         if(status.equals("未被使用")){

@@ -90,18 +90,19 @@ public class UserController {
         String pwd = httpServletRequest.getParameter("pwd");
         String userName = httpServletRequest.getParameter("userName");
         String role = httpServletRequest.getParameter("role");
+        User userConfirm = userService.getUserById(userId);
+        if(userConfirm!=null){
+            httpServletRequest.setAttribute("msg","User Already exists");
+            return "/WEB-INF/jsp/addUser.jsp";
+        }
 //        System.out.println(userId+"   "+pwd+"  "+userName+"   "+role);
         User user = new User();
         user.setUserName(userName);
         user.setPwd(pwd);
         user.setRole(role);
         user.setUserId(userId);
-        try {
+        userService.addUser(user);
 
-            userService.addUser(user);
-        } catch (Exception e) {
-            return "WEB-INF/jsp/error?errorMessage="+e.getMessage();
-        }
 //        ModelAndView mav = new ModelAndView();
 //        mav.setViewName("/user/addUser");
 //        return mav;
@@ -225,6 +226,8 @@ public class UserController {
         mav.setViewName("/WEB-INF/jsp/login.jsp");
         return mav;
     }
+
+
 }
 
 

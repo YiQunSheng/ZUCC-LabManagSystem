@@ -14,6 +14,8 @@
     <meta charset="UTF-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 <body>
 <div class="container">
     <div class="row clearfix">
@@ -69,13 +71,13 @@
             <form role="form" action="${pageContext.request.contextPath} /lab/editLab" method="post">
                 <div class="form-group">
                     <label>实验室编号</label>
-                    </label><input type="text" class="form-control" id="labIdInput" name="labId" value="${param.labId}" readonly/>
+                    </label><input type="text" class="form-control" id="labIdInput" name="labId" value="${param.labId}" readonly />
                 </div>
                 <div class="form-group">
-                    <label for="locationInput">实验室位置</label><input type="text" class="form-control" id="locationInput" name="location"/>
+                    <label for="locationInput">实验室位置</label><input type="text" class="form-control" id="locationInput" name="location" placeholder="请输入所在位置" minlength="1" maxlength="40" required/>
                 </div>
                 <div class="form-group">
-                    <label for="sizeInput">计算机数量</label><input type="text" class="form-control" id="sizeInput" name="size"/>
+                    <label for="sizeInput">计算机数量</label><input type="text" class="form-control" id="sizeInput" name="size" placeholder="请输入容量"   minlength="1" maxlength="3" required/>
                 </div>
                
                 <%--<div class="form-group">--%>

@@ -31,6 +31,7 @@ public class computerDaoImpl implements computerDao {
         List<computer> computers = query.list();
         transaction.commit();
         session.close();
+        if(computers.size()==0) return null;
         return computers.get(0);
     }
 
@@ -45,6 +46,7 @@ public class computerDaoImpl implements computerDao {
         List<computer> computers = query.list();
         transaction.commit();
         session.close();
+        if(computers.size()==0) return null;
         return computers;
     }
 

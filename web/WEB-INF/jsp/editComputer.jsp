@@ -14,10 +14,47 @@
     <meta charset="UTF-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 <body>
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/user/admin">系统首页</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">您好，${userName}</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >用户<strong
+                                    class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">信息</a>
+                                </li>
+                                <li>
+                                    <a href="/user/logout">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
             <div class="page-header">
                 <h1>
                     <small>实验室管理系统ZUCCLabs</small>
@@ -37,7 +74,7 @@
                     </label><input type="text" class="form-control" id="computerIdInput" name="computerId" value="${param.computerId}" readonly/>
                 </div>
                 <div class="form-group">
-                    <label for="ipAddressInput">ip地址</label><input type="text" class="form-control" id="ipAddressInput" name="ipAddress"/>
+                    <label for="ipAddressInput">ip地址</label><input type="text" class="form-control" id="ipAddressInput" name="ipAddress" placeholder="请输入IP地址" minlength="8" maxlength="16" required/>
                 </div>
                 <div class="form-group">
                     <label for="ipAddressInput">选择状态</label><input type="text" class="form-control"  name="status" value="未被使用" readonly/>
